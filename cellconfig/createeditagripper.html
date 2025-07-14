@@ -1,0 +1,695 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@400;600&family=Nunito+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Roboto+Mono:ital,wght@0,400;0,600;1,400;1,600&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="../res/bento.css">
+  <link rel="stylesheet" href="../res/site.css">
+  <link rel="stylesheet" href="../res/tree.css">
+  <link rel="stylesheet" href="../res/sibling.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <title>Creation within Flux</title>
+</head>
+<body id="site-body" onload="sLoaded()">
+    <header id="site-header">
+        <div id="header-logo"><img src="../img/logo.png" width="123" height="50" /></div>
+        <div><p>FluxRobot Manual</p></div>
+    </header>
+    <div id="site-main">
+        <nav id="site-nav">
+            <div class="treesite">
+ <ul>
+  <li><button class="tree blank"></button><a href="../index.html">Welcome to FluxRobot</a></li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../rbasics/index.html">Basics</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../rbasics/coordsystems.html">Basic Coordinate Systems</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuccoords.html">Robot Coordinates</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanucframes.html">Fanuc Frame concept</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuccordmove.html">Fanuc Motion commands</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanucaxlimits.html">Fanuc Axlimits</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/layout.html">Basic Layout concept</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../motionsequences/index.html">Motion sequences</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../motionsequences/pickup_pinch.html">PickupDispenser</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/pickup_vac.html">PickupPallet</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/partseparator.html">PartSeparator</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/doublesheet.html">DoublesheetDetector</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/regrip.html">Regrip</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/centering.html">CenteringTable</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/bendpos.html">BendPositioning</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/deposit.html">Deposit</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/toolchanger.html">ToolChanger</a></li>
+    <li><button class="tree blank"></button><a href="../motionsequences/gripperchanger.html">GripperChanger</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree open"></button>
+   <a href="index.html">Cell Components</a>
+   <ul>
+    <li><button class="tree blank"></button><a href="gripperinventory.html">Gripper Inventory</a></li>
+    <li>
+     <button class="tree closed"></button>
+     <a href="grippertool/index.html">GripperTool</a>
+     <ul class="hide">
+      <li><button class="tree blank"></button><a href="grippertool/gripperdesign.html">Gripper design</a></li>
+      <li><button class="tree blank"></button><a href="grippertool/grippertool.html">GripperTool</a></li>
+      <li><button class="tree blank"></button><a href="grippertool/gripperimport.html">Gripper import</a></li>
+      <li><button class="tree blank"></button><a href="grippertool/cups.html">Trumpf standard vacuum cups</a></li>
+     </ul>
+    </li>
+    <li><button class="tree blank"></button><a class="active" href="createeditagripper.html">Creation within Flux</a></li>
+    <li><button class="tree blank"></button><a href="bendcellsettings.html">BendCell settings</a></li>
+    <li>
+     <button class="tree closed"></button>
+     <a href="dev_components/index.html">Flux: Tweeak Components</a>
+     <ul class="hide">
+      <li><button class="tree blank"></button><a href="dev_components/cellcomponents.html">Flux: Cell components</a></li>
+      <li><button class="tree blank"></button><a href="dev_components/pinch.html">Adjust Pinch gripper offset</a></li>
+      <li><button class="tree blank"></button><a href="dev_components/gripper.html">Tweak a gripper CAD geometry</a></li>
+      <li><button class="tree blank"></button><a href="dev_components/dispenser.html">Change dispenser geometry</a></li>
+     </ul>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../lsprogramming/index.html">FluxRobot NC-Code</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../lsprogramming/rnc.html">Flux .RNC output</a></li>
+    <li><button class="tree blank"></button><a href="../lsprogramming/nomenclature.html">Nomenclature and Variables</a></li>
+    <li><button class="tree blank"></button><a href="../lsprogramming/postc2.html">Post Processor</a></li>
+    <li>
+     <button class="tree closed"></button>
+     <a href="../lsprogramming/framecycles/index.html">Flux Sub structure</a>
+     <ul class="hide">
+      <li><button class="tree blank"></button><a href="../lsprogramming/framecycles/general.html">General</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/framecycles/palletcenter.html">Sub_PalletCenter</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/framecycles/palletimage.html">Sub_PalletImage</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/framecycles/palletab13.html">Sub_PalletAB13</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/framecycles/dispenser.html">Sub_Dispenser</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/framecycles/subbendxcycle.html">Sub_BendXCycle</a></li>
+     </ul>
+    </li>
+    <li>
+     <button class="tree closed"></button>
+     <a href="../lsprogramming/fanuchw/index.html">Fanuc functions & macros</a>
+     <ul class="hide">
+      <li><button class="tree blank"></button><a href="../lsprogramming/fanuchw/operation.html">General operation procedure</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/fanuchw/fr_bgallign.html">FR_BgAllign</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/fanuchw/fr_stacksearch.html">FR_StackSearch</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/fanuchw/fr_scale.html">FFR_Scale</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/fanuchw/fr_gripclose.html">FR_GRipClose</a></li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/fanuchw/communication.html">Communication</a></li>
+     </ul>
+    </li>
+    <li><button class="tree blank"></button><a href="../lsprogramming/coding.html">Fanuc Code Snippets</a></li>
+    <li>
+     <button class="tree closed"></button>
+     <a href="../lsprogramming/ra_interface/index.html">RA interface</a>
+     <ul class="hide">
+      <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/safety.html">Safety first !</a></li>
+      <li>
+       <button class="tree closed"></button>
+       <a href="../lsprogramming/ra_interface/2_descriptionofhardware/index.html">Description of the hardware</a>
+       <ul class="hide">
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/2_descriptionofhardware/digitalingerface.html">Digital interface</a></li>
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/2_descriptionofhardware/ethercat.html">Ethercat</a></li>
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/2_descriptionofhardware/rainterface.html">RA interface</a></li>
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/2_descriptionofhardware/security_network.html">Network security</a></li>
+       </ul>
+      </li>
+      <li>
+       <button class="tree closed"></button>
+       <a href="../lsprogramming/ra_interface/1_generalinformation/index.html">Types of robot couplings</a>
+       <ul class="hide">
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/1_generalinformation/digitaliocoupling/index.html">Digital coupling</a></li>
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/1_generalinformation/loosesyncronizedcoupling/index.html">Loose syncronized coupling</a></li>
+        <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/1_generalinformation/thightsyncronized/index.html">Thight syncronized coupling with FluxRobot</a></li>
+       </ul>
+      </li>
+      <li><button class="tree blank"></button><a href="../lsprogramming/ra_interface/4_bendingprogram/index.html">Run a FluxRobot program</a></li>
+     </ul>
+    </li>
+    <li><button class="tree blank"></button><a href="../lsprogramming/hmi.html">Cell HMI</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../operation/index.html">Operation</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../operation/workflow.html">Workflow</a></li>
+    <li><button class="tree blank"></button><a href="../operation/startup.html">Startup of the robot</a></li>
+    <li><button class="tree blank"></button><a href="../operation/calib.html">Calibration calibration</a></li>
+    <li><button class="tree blank"></button><a href="../operation/pointer.html">Calibrate Pointer/Gauge</a></li>
+    <li><button class="tree blank"></button><a href="../operation/pinchgripper.html">Calibrate Pinch Gripper</a></li>
+    <li><button class="tree blank"></button><a href="../operation/vacuumgripper.html">Calibrate Vacuum Gripper</a></li>
+    <li><button class="tree blank"></button><a href="../operation/setuprobot.html">Setup Robot to Machine</a></li>
+    <li><button class="tree blank"></button><a href="../operation/pallet.html">Setup Pallet</a></li>
+    <li><button class="tree blank"></button><a href="../operation/dispenser.html">Setup Dispenser</a></li>
+    <li><button class="tree blank"></button><a href="../operation/partseparator.html">Setup PartSeparator</a></li>
+    <li><button class="tree blank"></button><a href="../operation/doublesheet.html">Setup DoublesheetDetector</a></li>
+    <li><button class="tree blank"></button><a href="../operation/regrip.html">Setup Regrip</a></li>
+    <li><button class="tree blank"></button><a href="../operation/centering.html">Setup CenteringTable</a></li>
+    <li><button class="tree blank"></button><a href="../operation/deposit.html">Setup Deposit</a></li>
+    <li><button class="tree blank"></button><a href="../operation/toolchanger.html">ToolChanger</a></li>
+    <li><button class="tree blank"></button><a href="../operation/gripperchanger.html">GripperChanger</a></li>
+    <li><button class="tree blank"></button><a href="../operation/connectionhmi.html">HMI PC -> Robot</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../frametool/index.html">Frame tool</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../frametool/frame_racell.html">RA Cell</a></li>
+    <li><button class="tree blank"></button><a href="../frametool/frame_flexcell.html">FlexCell</a></li>
+    <li><button class="tree blank"></button><a href="../frametool/framecoord.html">Use of frame coords</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../bestpractise/index.html">Best practices</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../bestpractise/layout.html">Layout</a></li>
+    <li><button class="tree blank"></button><a href="../bestpractise/gripper.html">Gripper design</a></li>
+    <li><button class="tree blank"></button><a href="../bestpractise/reach.html">Reachability</a></li>
+    <li><button class="tree blank"></button><a href="../bestpractise/adjustments.html">Improve accuracy</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../fence/index.html">Safety</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../fence/fence.html">Fence</a></li>
+    <li><button class="tree blank"></button><a href="../fence/light.html">Stack Light</a></li>
+    <li><button class="tree blank"></button><a href="../fence/robomode.html">Robot mode</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../electricalwiring/index.html">Electrical wiring</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../electricalwiring/wiring.html">Wiring of the Fanuc cabinet</a></li>
+    <li><button class="tree blank"></button><a href="../electricalwiring/robwrist.html">Wiring robot wrist</a></li>
+    <li><button class="tree blank"></button><a href="../electricalwiring/robback.html">Wiring robot back hub</a></li>
+    <li>
+     <button class="tree closed"></button>
+     <a href="../electricalwiring/devicepanel/index.html">Device panel</a>
+     <ul class="hide">
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/digio.html">Digital IO</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/analogio.html">Analog IO's</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/diginp.html">Digital input</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/manifold.html">Manifold</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/vacuum.html">Vacuum generator</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/userio.html">UserIO</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/relay.html">Relay station</a></li>
+      <li><button class="tree blank"></button><a href="../electricalwiring/devicepanel/terminals.html">0v and 24v terminal</a></li>
+     </ul>
+    </li>
+    <li><button class="tree blank"></button><a href="../electricalwiring/grippers/index.html">Gripper</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../schematics/index.html">Schematics</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../schematics/safety.html">Safety</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../troubleshootflux/index.html">Troubleshooting Flux</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../troubleshootflux/part-pickup.html">Part Pickup Error</a></li>
+    <li><button class="tree blank"></button><a href="../troubleshootflux/collisions-with-machine.html">Collisions with Machine</a></li>
+    <li><button class="tree blank"></button><a href="../troubleshootflux/overtravel-of-axis.html">Overtravel of Axis</a></li>
+    <li><button class="tree blank"></button><a href="../troubleshootflux/modification-of-waypoints.html">Modifications of Waypoints</a></li>
+    <li><button class="tree blank"></button><a href="../troubleshootflux/collision-while-insertion-extraction.html">Collisions while Insertion and Extraction</a></li>
+   </ul>
+  </li>
+  <li>
+   <button class="tree closed"></button>
+   <a href="../troubleshootrobot/index.html">Troubleshoot robot</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../troubleshootrobot/errormessages.html">Troubleshoot robot</a></li>
+    <li><button class="tree blank"></button><a href="../troubleshootrobot/accuracy.html">Accuracy</a></li>
+   </ul>
+  </li>
+ </ul>
+</div>
+
+        </nav>
+        <div id="site-nav-right">
+            <nav id="site-crumb">
+ <div>
+  <button>
+   <img src="../res/home.png">
+  </button>
+ </div>
+ <div>
+  <a href="index.html">Cell Components</a>
+ </div>
+ <div>/</div>
+ <div>
+  <a href="createeditagripper.html">Creation within Flux</a>
+ </div>
+</nav>
+
+            <div id="site-crumb-below">
+                <div id="site-toc-left">
+                    <article id="article">
+                        <h1>Creation within Flux</h1>
+<div class="sect1">
+<h2 id="_create">Create</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To create an individual gripper, data of the wrist, the optional base plate, the suction plate, and the suction cups, with the corresponding positions are required.</p>
+</div>
+<div class="paragraph">
+<p>For this purpose a DXF file, including the respective geometry and parameters can be created.</p>
+</div>
+<div class="paragraph">
+<p>Create your own gripper geometry with the desired suction cups, using the drawing module.
+Alternatively, an existing DXF drawing can also be imported and edited.</p>
+</div>
+<div class="paragraph">
+<p><strong>Procedure:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a new drawing inside Flux and select the sketch option.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/sketch.png" alt="sketch">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Create a drawing of the gripper with the wrist, base plate and suction cup plate and enter (alternatively, open an existing DXF drawing and adapt it as required).
+<strong>C:\ProgramData\Metamation\Flux\BGrippers\</strong></p>
+</li>
+<li>
+<p>Apply a different colour (e.g. cyan) to the
+contour of the base plate.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/selectlayer.png" alt="selectlayer">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>For a correct graphical display of the optional base plate, it must be stored in a separate layer. In the drawing module with the entry <strong>BasePlate</strong> at the corresponding colour (here cyan), the necessary layer can be define.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/applycolor.png" alt="applycolor">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Make sure that the centre of the wrist is at the drawing zero point and input the required text inputs for the parameters.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/sketchcenter.png" alt="sketchcenter">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="6">
+<li>
+<p>Many of the settings for this gripper come from text entities that are of the form KEY=VALUE. Here are the possible keys, with their meanings</p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the gripper</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Weight</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Weight of the gripper, in kg.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WRISTDIA</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wrist diameter (must be 120/180 corresponding to BM60/BM150)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WRISTTHICKNESS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The thickness in Z of the wrist cylinder underneath. The wrist cylinder extends from Z=0 to this value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PLATEEXTENT</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Z extent (in the form ZMIN:ZMAX) of the plate. Typically, one sets ZMIN the same as WRISTTHICKNESS, so the plate starts where the wrist-cylinder ends.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>BASEPLATEEXTENT</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Z extent of the baseplate (see the section below on Two-Layered-Grippers)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUPNAME</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of suction cup used for this gripper (like SAXM50)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUPS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of suction cups</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUP1POS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The position of the first suction cup in the form X,Y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUP2POS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The position of the second suction cup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUPNPOS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The position of the Nth suction cup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CUPDIA</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can be used instead of CUPNAME to specify a suction cup (not recommended).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Key</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Meaning</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic" start="7">
+<li>
+<p>Export as DXF file under the below mentioned path after updating the text parameters from the drawing module.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/exportgripperdxf.png" alt="exportgripperdxf">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_suction_cup_types">Suction Cup Types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the Bend database there are different types of suction cups available, which can be used when configuring a new gripper.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem38.png" alt="newitem38">
+</div>
+<div class="title">Figure 1. Suction cup database</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem42.png" alt="newitem42">
+</div>
+<div class="title">Figure 2. Example gripper from database</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_import">Import</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A vacuum suction gripper for the BendMaster machines can be imported from a DXF file. The DXF file represents the <strong>top</strong> view of the gripper (top view means from the suctions cups, NOT from the BendMaster). POLYLINE entities in the DXF provide the shape of the gripper plate, while additional information about the gripper (like its name, thickness, and suction cup placement).</p>
+</div>
+<div class="paragraph">
+<p>Files in the required format (DXF or ARV or Geo) can be imported into the Bend Database</p>
+</div>
+<div class="paragraph">
+<p><strong>Procedure:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the <strong>Database</strong> inside FLUX</p>
+</li>
+<li>
+<p>Select the <strong>Bend Grippers</strong> option from the list</p>
+</li>
+<li>
+<p>Import the provided <strong>Gripper</strong> from the directory</p>
+</li>
+<li>
+<p>The new Gripper can be viewed inside the Gripper inventory inside the path <strong>C:\\ProgramData\\Metamation\\Flux\\BGrippers\\</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Here is how this gripper looks after importing (shown in two view from below and from above).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem58.png" alt="newitem58">
+</div>
+</div>
+<div class="paragraph">
+<p>As the part is moved around on the pallet, the gripper remains <strong>stuck</strong> to the part and the robot follows the movements.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem57.png" alt="newitem57">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem59.png" alt="newitem59">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gripper_types">Gripper Types</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_basic_gripper">Basic Gripper</h3>
+<div class="paragraph">
+<p>See the simple drawing shown below, which defines a gripper and can be saved as dxf file to import back inside the Gripper inventory.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/basicgripper.png" alt="basicgripper">
+</div>
+</div>
+<div class="paragraph">
+<p>Here are some important points about how the DXF is drawn:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The origin of the drawing (0,0) corresponds to the robot wrist center. You can see this represented by a point and circle in the figure. (Both the point and the circle are not really needed for the gripper import, since the gripper center is implicitly always at the origin).</p>
+</li>
+<li>
+<p>This drawing also has some POINT entities representing each of the suction cup locations. Again, these are primarily for making the drawing more clear, and are not actually used by the gripper importer (the suction cup positions are specified by text entities).</p>
+</li>
+<li>
+<p>The actual plate shape is drawn as closed POLYLINE entities. If you have other polylines inside the outer one, they become <strong>holes</strong> in the plate.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is how this gripper looks after importing (shown in two view from below and from above).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem52.png" alt="newitem52">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem53.png" alt="newitem53">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_two_layered_gripper">Two- Layered Gripper</h3>
+<div class="paragraph">
+<p>Slightly more complex grippers can be modeled using a separate <strong>BASEPLATE</strong> layer. Create a layer named <strong>BASEPLATE</strong> in the DXF file, and draw some closed POLYLINE shapes in that layer. Then this layer can have separate Z extrusion limits specified by the BASEPLATEEXTENT key.  The tools needed to create and edit layers are now added.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on Related when a drawing is being edited.</p>
+</li>
+<li>
+<p>Click on the Layers menu.</p>
+</li>
+<li>
+<p>The Layer editor dialog (shown below center) is displayed. Here you can add new layers, rename them, set colors and line-styles.</p>
+</li>
+<li>
+<p>In the drawing, clicking on an entity allows you to change the layer of that entity (see image above right). This selector appears only if there are multiple layers in the drawing.  After editing the drawing using these tools, save the drawing in DXF Format. Here is a DXF drawn using such a <strong>BASEPLATE</strong> layer (shown green in the image).</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem48.png" alt="newitem48">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For this gripper, the wrist extends from Z=0 to Z=23. Then, the <strong>base plate</strong> (green) extends from Z=23 to Z=40, as indicated by the <strong>BASEPLATEEXTENT</strong> key. Finally, the actual gripper plate (holding the suction cups) extends from Z=40 to Z=63, as indicated by the <strong>PLATEEXTENT</strong> key.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The gripper plate also has some hexagonal holes in it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When imported, this gripper looks like the image below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/newitem47.png" alt="newitem47">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multi_circuit_grippers">Multi- Circuit GRIPPERS</h3>
+<div class="paragraph">
+<p>You can create a multi-circuit gripper (a gripper that has several independent vacuum circuits). For such a gripper, each suction cup is assigned a non-zero <strong>group number</strong>.</p>
+</div>
+<div class="paragraph">
+<p>This assignment happens by using a special form of the CUP1POS, CUP2POS etc strings. These take the form:</p>
+</div>
+<div class="paragraph">
+<p><strong>CUP1POS = 340,120 ==6\</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>CUP2POS = 420,140 ==8\</strong></p>
+</div>
+<div class="paragraph">
+<p>The value after the == is the suction group number for the cup. In this example, Cup 1 is assigned to suction group 6, Cup 2 is assigned to suction group 8 and so on.</p>
+</div>
+<div class="paragraph">
+<p>For a multi-circle gripper to be correctly configured, <strong>every</strong> cup must be assigned a suction group number in this manner.</p>
+</div>
+<div class="paragraph">
+<p>Below image shows how the multilayered Gripper will look like inside Bend Grippers Database.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/multilayergripper.png" alt="multilayergripper">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+                    </article>
+                </div>
+                <div id="site-toc-holder">
+                    <aside id="site-toc">
+ <h3>Contents</h3>
+ <ul>
+  <li level="1">
+   <a href="#_create">Create</a>
+  </li>
+  <li level="1">
+   <a href="#_suction_cup_types">Suction Cup Types</a>
+  </li>
+  <li level="1">
+   <a href="#_import">Import</a>
+  </li>
+  <li level="1">
+   <a href="#_gripper_types">Gripper Types</a>
+  </li>
+  <li level="2">
+   <a href="#_basic_gripper">Basic Gripper</a>
+  </li>
+  <li level="2">
+   <a href="#_two_layered_gripper">Two- Layered Gripper</a>
+  </li>
+  <li level="2">
+   <a href="#_multi_circuit_grippers">Multi- Circuit GRIPPERS</a>
+  </li>
+ </ul>
+</aside>
+
+                </div>
+            </div>
+            <nav class="pagination">
+ <span class="prev"><a href="grippertool/cups.html">Trumpf standard vacuum cups</a></span>
+ <span class="next"><a href="bendcellsettings.html">BendCell settings</a></span>
+</nav>
+
+        </div>
+        <div id="searchbox">
+          <input id="searchinput" type="search" placeholder="Search... (Key: F)" autocomplete="false" size="30" />
+          <ul id="results"></ul>
+        </div>
+    </div>
+    <footer id="site-footer">
+        <div class="left">
+            <p>&nbsp;&nbsp;Copyright &copy; 2023 by Metamation. All rights reserved.</p>
+        </div>
+        <div class="middle"></div>
+        <div class="right">
+            <p>Compiled by Bento</p>
+            <img src="../res/bento.png" />
+        </div>
+    </footer>
+    <script>
+        // The baseLevel is used to assign the search result pages.
+        var baseLevel = "../res".replace("res", "");
+    </script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="../res/index.js"></script>
+    <script src="../res/files.js"></script>
+    <script src="../res/site.js"></script>
+
+    
+</body>
+</html>
