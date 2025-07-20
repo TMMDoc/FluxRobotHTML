@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../res/sibling.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <title>Fanuc Frame concept</title>
+  <title>Stack Light</title>
 </head>
 <body id="site-body" onload="sLoaded()">
     <header id="site-header">
@@ -24,15 +24,15 @@
  <ul>
   <li><button class="tree blank"></button><a href="../index.html">Welcome to FluxRobot</a></li>
   <li>
-   <button class="tree open"></button>
-   <a href="index.html">Basics</a>
-   <ul>
-    <li><button class="tree blank"></button><a href="coordsystems.html">Basic Coordinate Systems</a></li>
-    <li><button class="tree blank"></button><a href="fanuccoords.html">Robot Coordinates</a></li>
-    <li><button class="tree blank"></button><a class="active" href="fanucframes.html">Fanuc Frame concept</a></li>
-    <li><button class="tree blank"></button><a href="fanuccordmove.html">Fanuc Motion commands</a></li>
-    <li><button class="tree blank"></button><a href="fanucaxlimits.html">Fanuc Axlimits</a></li>
-    <li><button class="tree blank"></button><a href="layout.html">Basic Layout concept</a></li>
+   <button class="tree closed"></button>
+   <a href="../rbasics/index.html">Basics</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../rbasics/coordsystems.html">Basic Coordinate Systems</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuccoords.html">Robot Coordinates</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanucframes.html">Fanuc Frame concept</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuccordmove.html">Fanuc Motion commands</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanucaxlimits.html">Fanuc Axlimits</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/layout.html">Basic Layout concept</a></li>
    </ul>
   </li>
   <li>
@@ -185,12 +185,12 @@
    </ul>
   </li>
   <li>
-   <button class="tree closed"></button>
-   <a href="../fence/index.html">Safety</a>
-   <ul class="hide">
-    <li><button class="tree blank"></button><a href="../fence/fence.html">Fence</a></li>
-    <li><button class="tree blank"></button><a href="../fence/light.html">Stack Light</a></li>
-    <li><button class="tree blank"></button><a href="../fence/robomode.html">Robot mode</a></li>
+   <button class="tree open"></button>
+   <a href="index.html">Safety</a>
+   <ul>
+    <li><button class="tree blank"></button><a href="fence.html">Fence</a></li>
+    <li><button class="tree blank"></button><a class="active" href="light.html">Stack Light</a></li>
+    <li><button class="tree blank"></button><a href="robomode.html">Robot mode</a></li>
    </ul>
   </li>
   <li>
@@ -255,179 +255,46 @@
   </button>
  </div>
  <div>
-  <a href="index.html">Basics</a>
+  <a href="index.html">Safety</a>
  </div>
  <div>/</div>
  <div>
-  <a href="fanucframes.html">Fanuc Frame concept</a>
+  <a href="light.html">Stack Light</a>
  </div>
 </nav>
 
             <div id="site-crumb-below">
                 <div id="site-toc-left">
                     <article id="article">
-                        <h1>Fanuc Frame concept</h1>
-<div class="sect1">
-<h2 id="_tool_frames">Tool frames</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_no_frame_applied">No frame applied</h3>
+                        <h1>Stack Light</h1>
 <div class="paragraph">
-<p>With user and tool frame set to zero the Robot has the following coordinate orientations in the following positions:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/frame0.png" alt="frame0">
-</div>
+<p>The Robot Cell fence is equipped with a stack light to indicate various states of the Bending Cell. Stack light outputs are controlled by the Press Brake controller based on the current state of the cell.</p>
 </div>
 <div class="paragraph">
-<p>Turning the tool in the horizontal position (J5=0) creates the pose W=-180 p=-90 R=0</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tf1_straight_pointer_0_180_0">TF1: Straight Pointer [0 180 0]</h3>
-<div class="paragraph">
-<p>Common practise is that the tool should pull away with Z+. Therefore the tool frame is set to [0 180 0]</p>
+<p><span class="image"><img src="img/light.png" alt="r" width="300"></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="img/frame01.png" alt="frame01"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tf2_pinch_gripper_90_0_90">TF2: Pinch Gripper [90 0 90]</h3>
-<div class="paragraph">
-<p>When we work with the pinch gripper we want while bending the machine coordinate system on the gripper. To turn back the Tool coordinate system into the world coordinate system we need a ToolFrame1 = [0 0 166 90 0 90]; The coordinate system of the pinch gripper after rotation</p>
+<p>RED Light – 1. Always ON – Machine in Emergency Stop/ Error State.
+Blinking – Robot in T2 Mode.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="img/frame02.png" alt="frame02"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tf3_vacuum_gripper_180_0_180">TF3: Vacuum Gripper [180 0 180]</h3>
-<div class="paragraph">
-<p>When we work with the Vacuum gripper we want while bending the machine coordinate system on the gripper. To turn back the Tool coordinate system into the world coordinate system we need a ToolFrame1 = [&#8230;&#8203; 180 0 180];</p>
+<p>AMBER Light - 1. Always ON – ROBOT In Manual Mode (T1).
+Blinking Alternatively with RED – Robot in T2 Mode.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="img/frame03.png" alt="frame03"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tf4_measurement_gauge_0_90_180">TF4: Measurement gauge [0 -90 180]</h3>
-<div class="paragraph">
-<p>The horizontal gauge has a simple transformation when the x direction is kept in the world X direction: J5=00 j6=0 create W=0 P=0 R=0</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="img/frame04.png" alt="frame04"></span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_user_frames">User frames</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In FluxRobot / Fanuc the number of frames are limited so only the crucial components work in a user frame. The less crucial components need to be adjusted in FluxRobot accordingly. The default usage of FluxRobot uses the following frames:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Frame 1: Robot (main frame)</p>
-</li>
-<li>
-<p>Frame 2: Pickup Station 1 (e.g Dispenser)</p>
-</li>
-<li>
-<p>Frame 3: Pickup Station 2 (e.g. Pallet)</p>
-</li>
-<li>
-<p>Frame 4: Centering Table</p>
-</li>
-<li>
-<p>Frame 5: Double sheet detector</p>
-</li>
-<li>
-<p>Frame 6: Tool changer</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/frame1.png" alt="frame1">
-</div>
-</div>
-<div class="paragraph">
-<p>The UserFrame concept allows you with Fanuc standard tools to measure the exact actual position of a component. If a motion is defined in this coordination system then a adjustment of a whole motion block is easy to do.</p>
-</div>
-<div class="paragraph">
-<p>FluxRobot on your desktop PC should be as close as possible be the digital representation of your real system. It is recommended to update the data of your PC with the machine regularly to get the best results to avoid collisions. FluxRobot provides tools and procedures to do this in a guided way.</p>
-</div>
-<div class="paragraph">
-<p>Nevertheless FluxRobot gives the operator on the machine to do fine adjustments, especially for effects like sheets sagging on the gripper by gravity etc.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_convert_3_point_user_frames_in_zyx_coords">Convert 3 point user frames in ZYX Coords</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The Fanuc Euler coordinates are defined X after Y after Z
-The Human intuition often does the Z coordinate as the last rotation (rotation of the robot towards the machine)</p>
-</div>
-<div class="paragraph">
-<p>To convert e.g. the rotation of the robot towards the machine into a user frame the follwowing rotations need to be calculated:
-3 point method: W=-43 P=12 R=13.2</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="img/frame05.png" alt="frame05"></span></p>
-</div>
-<div class="paragraph">
-<p>rotation3dToEulerAngles(eulerAnglesToRotation3d([13.2 12 -43],'ZYX'),'XYZ')
- -44.3246   -0.4409   17.7620</p>
-</div>
-<div class="paragraph">
-<p>If the robot is tilted against the resulting machine coord system the angles have to be reversed</p>
-</div>
-</div>
+<p>GREEN Light - 1. Blinking -  Robot in Automode and machine in ready state to start  program.
+Always ON – Robot Program running in Auto Mode.</p>
 </div>
 
                     </article>
                 </div>
                 <div id="site-toc-holder">
-                    <aside id="site-toc">
- <h3>Contents</h3>
- <ul>
-  <li level="1">
-   <a href="#_tool_frames">Tool frames</a>
-  </li>
-  <li level="2">
-   <a href="#_no_frame_applied">No frame applied</a>
-  </li>
-  <li level="2">
-   <a href="#_tf1_straight_pointer_0_180_0">TF1: Straight Pointer [0 180 0]</a>
-  </li>
-  <li level="2">
-   <a href="#_tf2_pinch_gripper_90_0_90">TF2: Pinch Gripper [90 0 90]</a>
-  </li>
-  <li level="2">
-   <a href="#_tf3_vacuum_gripper_180_0_180">TF3: Vacuum Gripper [180 0 180]</a>
-  </li>
-  <li level="2">
-   <a href="#_tf4_measurement_gauge_0_90_180">TF4: Measurement gauge [0 -90 180]</a>
-  </li>
-  <li level="1">
-   <a href="#_user_frames">User frames</a>
-  </li>
-  <li level="1">
-   <a href="#_convert_3_point_user_frames_in_zyx_coords">Convert 3 point user frames in ZYX Coords</a>
-  </li>
- </ul>
-</aside>
-
+                    <aside id="site-toc"></aside>
                 </div>
             </div>
             <nav class="pagination">
- <span class="prev"><a href="fanuccoords.html">Robot Coordinates</a></span>
- <span class="next"><a href="fanuccordmove.html">Fanuc Motion commands</a></span>
+ <span class="prev"><a href="fence.html">Fence</a></span>
+ <span class="next"><a href="robomode.html">Robot mode</a></span>
 </nav>
 
         </div>
