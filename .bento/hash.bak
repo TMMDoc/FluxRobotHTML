@@ -1,7 +1,7 @@
 Version=56
 LANGUAGE=EN
 Folders=26
-Pages=122
+Pages=123
 UIXlate=False, DebugUIXlate=False, Language=EN
 
 contents.txt • 251026.031058
@@ -39,11 +39,11 @@ Fence\Fence.adoc • Fence
 Fence\Index.adoc • Safety
 Fence\light.adoc • Stack Light
 Fence\Robomode.adoc • Robot mode
-Frames\contents.txt • 254213.074227
+Frames\contents.txt • 251403.031456
 Frames\Framecoord.adoc • Use of frame coords
 Frames\Frame_FlexCell.adoc • UF Starmatik FlexCell
-Frames\Frame_RACell.adoc • UF RA Cell
-Frames\Frame_RAFlexCell.adoc • UF RA FlexCell
+Frames\Frame_RA25.adoc • UF RA 25kg 45deg
+Frames\Frame_RACell.adoc • UF RA FlexCell
 Frames\Index.adoc • Frames
 LSProgramming\Coding.adoc • Fanuc Code Snippets
 LSProgramming\contents.txt • 254213.074227
@@ -66,9 +66,10 @@ MotionSequences\Pickup_vac.adoc • PickupPallet
 MotionSequences\Regrip.adoc • Regrip
 MotionSequences\ToolChanger.adoc • ToolChanger
 Operation\Calib.adoc • Calibration calibration
+Operation\calib_gauge.adoc • Calibrate Gauge
 Operation\Centering.adoc • Setup CenteringTable
 Operation\ConnectionHMI.adoc • HMI PC -> Robot
-Operation\contents.txt • 254213.074227
+Operation\contents.txt • 255903.035900
 Operation\Deposit.adoc • Setup Deposit
 Operation\Dispenser.adoc • Setup Dispenser
 Operation\Doublesheet.adoc • Setup DoublesheetDetector
@@ -77,7 +78,7 @@ Operation\Index.adoc • Operation
 Operation\pallet.adoc • Setup Pallet
 Operation\PartSeparator.adoc • Setup PartSeparator
 Operation\PinchGripper.adoc • Calibrate Pinch Gripper
-Operation\Pointer.adoc • Calibrate Pointer/Gauge
+Operation\Pointer.adoc • Calibrate Pointer
 Operation\Regrip.adoc • Setup Regrip
 Operation\setupRobot.adoc • Setup Robot to Machine
 Operation\startup.adoc • Startup of the robot

@@ -147,7 +147,8 @@
    <button class="tree open"></button>
    <a class="active" href="index.html">Frames</a>
    <ul>
-    <li><button class="tree blank"></button><a href="frame_racell.html">UF RA Cell</a></li>
+    <li><button class="tree blank"></button><a href="frame_ra25.html">UF RA 25kg 45deg</a></li>
+    <li><button class="tree blank"></button><a href="frame_racell.html">UF RA FlexCell</a></li>
     <li><button class="tree blank"></button><a href="frame_flexcell.html">UF Starmatik FlexCell</a></li>
     <li><button class="tree blank"></button><a href="framecoord.html">Use of frame coords</a></li>
    </ul>
@@ -158,10 +159,10 @@
    <ul class="hide">
     <li><button class="tree blank"></button><a href="../operation/workflow.html">Workflow</a></li>
     <li><button class="tree blank"></button><a href="../operation/startup.html">Startup of the robot</a></li>
-    <li><button class="tree blank"></button><a href="../operation/calib.html">Calibration calibration</a></li>
-    <li><button class="tree blank"></button><a href="../operation/pointer.html">Calibrate Pointer/Gauge</a></li>
+    <li><button class="tree blank"></button><a href="../operation/pointer.html">Calibrate Pointer</a></li>
     <li><button class="tree blank"></button><a href="../operation/pinchgripper.html">Calibrate Pinch Gripper</a></li>
     <li><button class="tree blank"></button><a href="../operation/vacuumgripper.html">Calibrate Vacuum Gripper</a></li>
+    <li><button class="tree blank"></button><a href="../operation/calib_gauge.html">Calibrate Gauge</a></li>
     <li><button class="tree blank"></button><a href="../operation/setuprobot.html">Setup Robot to Machine</a></li>
     <li><button class="tree blank"></button><a href="../operation/pallet.html">Setup Pallet</a></li>
     <li><button class="tree blank"></button><a href="../operation/dispenser.html">Setup Dispenser</a></li>
@@ -264,138 +265,47 @@
                 <div id="site-toc-left">
                     <article id="article">
                         <h1>Frames</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
 <p>The situation on the machine is often slightly different as in the offline programming (especially accuracy of the gripper etc) so the operator needs to fine adjust. To run a program in an optimized way he could tweak a frame within some millimeter.</p>
 </div>
 <div class="paragraph">
 <p>All frames are measured with the calibration sheet and the straight pointer tool</p>
 </div>
+<div class="paragraph">
+<p>Recommended process:</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Calibrate the gauge tool (Toolframe 4)</p>
+</li>
+<li>
+<p>calibrate the machine to the robot (UserFrame 1) with tool 4</p>
+</li>
+<li>
+<p>Calibrate the straight pointer (Toolframe 1)</p>
+</li>
+<li>
+<p>Calibrate all other components with tool 1</p>
+</li>
+<li>
+<p>calibrate your custom Vacuum gripper</p>
+</li>
+</ol>
 </div>
-<div class="sect1">
-<h2 id="_user_frames">User frames</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate point</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Press brake</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dispenser</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pallet</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Centering table</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Regrip station</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Changer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gripper changer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dispose area</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 9</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UF 10</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_tool_frames">Tool frames</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate point</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TF 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Straight Pointer [0 180 180]</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TF 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pinch Gripper</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alligned with machine before bending</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TF 3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vacuum Gripper</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alligned with machine before bending</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TF 4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Measurement gauge [0 -90 180]</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TF 5</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="paragraph">
+<p>The pinch gripper does usually work with its factory calibration best</p>
 </div>
 
                     </article>
                 </div>
                 <div id="site-toc-holder">
-                    <aside id="site-toc">
- <h3>Contents</h3>
- <ul>
-  <li level="1">
-   <a href="#_user_frames">User frames</a>
-  </li>
-  <li level="1">
-   <a href="#_tool_frames">Tool frames</a>
-  </li>
- </ul>
-</aside>
-
+                    <aside id="site-toc"></aside>
                 </div>
             </div>
             <nav class="pagination">
  <span class="prev"><a href="../lsprogramming/hmi.html">Cell HMI</a></span>
- <span class="next"><a href="frame_racell.html">UF RA Cell</a></span>
+ <span class="next"><a href="frame_ra25.html">UF RA 25kg 45deg</a></span>
 </nav>
 
         </div>

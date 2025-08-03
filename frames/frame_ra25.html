@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../res/sibling.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <title>Basic Coordinate Systems</title>
+  <title>UF RA 25kg 45deg</title>
 </head>
 <body id="site-body" onload="sLoaded()">
     <header id="site-header">
@@ -24,16 +24,16 @@
  <ul>
   <li><button class="tree blank"></button><a href="../index.html">Welcome to FluxRobot</a></li>
   <li>
-   <button class="tree open"></button>
-   <a href="index.html">Basics</a>
-   <ul>
-    <li><button class="tree blank"></button><a class="active" href="coordsystems.html">Basic Coordinate Systems</a></li>
-    <li><button class="tree blank"></button><a href="fanuccoords.html">Robot Coordinates</a></li>
-    <li><button class="tree blank"></button><a href="fanuctoolframes.html">Tool frames</a></li>
-    <li><button class="tree blank"></button><a href="fanucuserframes.html">User frames</a></li>
-    <li><button class="tree blank"></button><a href="fanuccordmove.html">Fanuc Motion commands</a></li>
-    <li><button class="tree blank"></button><a href="fanucaxlimits.html">Fanuc Axlimits</a></li>
-    <li><button class="tree blank"></button><a href="layout.html">Basic Layout concept</a></li>
+   <button class="tree closed"></button>
+   <a href="../rbasics/index.html">Basics</a>
+   <ul class="hide">
+    <li><button class="tree blank"></button><a href="../rbasics/coordsystems.html">Basic Coordinate Systems</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuccoords.html">Robot Coordinates</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuctoolframes.html">Tool frames</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanucuserframes.html">User frames</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanuccordmove.html">Fanuc Motion commands</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/fanucaxlimits.html">Fanuc Axlimits</a></li>
+    <li><button class="tree blank"></button><a href="../rbasics/layout.html">Basic Layout concept</a></li>
    </ul>
   </li>
   <li>
@@ -144,13 +144,13 @@
    </ul>
   </li>
   <li>
-   <button class="tree closed"></button>
-   <a href="../frames/index.html">Frames</a>
-   <ul class="hide">
-    <li><button class="tree blank"></button><a href="../frames/frame_ra25.html">UF RA 25kg 45deg</a></li>
-    <li><button class="tree blank"></button><a href="../frames/frame_racell.html">UF RA FlexCell</a></li>
-    <li><button class="tree blank"></button><a href="../frames/frame_flexcell.html">UF Starmatik FlexCell</a></li>
-    <li><button class="tree blank"></button><a href="../frames/framecoord.html">Use of frame coords</a></li>
+   <button class="tree open"></button>
+   <a href="index.html">Frames</a>
+   <ul>
+    <li><button class="tree blank"></button><a class="active" href="frame_ra25.html">UF RA 25kg 45deg</a></li>
+    <li><button class="tree blank"></button><a href="frame_racell.html">UF RA FlexCell</a></li>
+    <li><button class="tree blank"></button><a href="frame_flexcell.html">UF Starmatik FlexCell</a></li>
+    <li><button class="tree blank"></button><a href="framecoord.html">Use of frame coords</a></li>
    </ul>
   </li>
   <li>
@@ -257,107 +257,179 @@
   </button>
  </div>
  <div>
-  <a href="index.html">Basics</a>
+  <a href="index.html">Frames</a>
  </div>
  <div>/</div>
  <div>
-  <a href="coordsystems.html">Basic Coordinate Systems</a>
+  <a href="frame_ra25.html">UF RA 25kg 45deg</a>
  </div>
 </nav>
 
             <div id="site-crumb-below">
                 <div id="site-toc-left">
                     <article id="article">
-                        <h1>Basic Coordinate Systems</h1>
-<div id="preamble">
-<div class="sectionbody">
+                        <h1>UF RA 25kg 45deg</h1>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate point</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TF 1 Straight Pointer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[0 180 180]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="img/pointer.png" alt="pointer"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TF 2 Pinch Gripper</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[-19.3 0 279.3 90 0 90]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alligned with machine before bending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TF 3 Vacuum Gripper</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alligned with machine before bending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TF 4 Measurement gauge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[-51 0 318 90 -90 180]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="img/gauge.png" alt="gauge"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TF 5</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate point</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pic</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press brake</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dispenser</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pallet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[ 488 146 -324 0 0 0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="img/uf3_table.png" alt="UF3 Table"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Centering table</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[-490 903 211 57.4 -50.1 20]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="img/uf4_center.png" alt="UF4 Center"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regrip station</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Changer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gripper changer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dispose area</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 9</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UF 10</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>Each component has its own coordinate system, frames are used to translate the coordinate systems into ieach other.</p>
+<p><span class="image"><img src="img/uf4_center.png" alt="UF4 Center"></span></p>
+</div>
+<div class="paragraph">
+<p>The Source of the frame tool can be found in the following path:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>D:\GIT_METAMATION\RobotHW\03_Matlab_Ccode\ML_Frametool</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The RA Cell utilizes the following user Frames:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="img/coord_sys.png" alt="Coord sys">
+<img src="img/racell.png" alt="RACell">
 </div>
 </div>
 <div class="paragraph">
-<p>In Flux the position is defined in "C:\ProgramData\Metamation\Flux\Machine\120315\cellconfig.curl".</p>
+<p>Output of the frame tool is the read values from frame.dh and the needed values for Flux</p>
 </div>
-<div class="paragraph">
-<p>The frames are experimentally measured with a calibration plate which has a coordinate system 50mm from its border. Thus all calibration points are easily reachable.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="img/calibplate.png" alt="Calibplate"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_zero_points_of_components">Zero points of components</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Zero of the Backgauge: Gauge1: left side, gauge2: right side towards the center of the machine</p>
-</div>
-<div class="imageblock">
+<div class="literalblock">
 <div class="content">
-<img src="img/bg.png" alt="BG">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/bg2.png" alt="BG2">
-</div>
-</div>
-<div class="paragraph">
-<p>The TCP-positon of a pinch gripper is the center front face of the moving finger</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/pinch.png" alt="pinch">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_old_coordinate_systems">Old coordinate systems</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The traditional Coordinates are only use in the machine documentation. FluxRobot uses the upper universal XYZ Coordinates.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>R was in ram direction (Z)</p>
-</li>
-<li>
-<p>X points towards the machine (Y)</p>
-</li>
-<li>
-<p>Z is along the machine (x)</p>
-</li>
-</ul>
-</div>
+<pre>Coordinates in Robot coordinates
+1	1056.0	0.0	497.0	-0.0	0.0	-90.0	MASCHINE
+2	-1134.1	922.8	101.7	15.3	-14.7	0.0	DISPENS
+3	-863.1	734.0	-308.0	14.8	-13.7	-92.7	PAL TILT
+4	-455.0	1207.0	673.0	42.0	-32.7	30.0	   CENT
+5	-10.6	1322.0	195.3	-0.0	0.0	-90.0	REGRIP
+6	469.7	-1675.7	645.7	86.4	0.0	-180.0	TOOL
+Coordinates in FluxMachine coordinates (rot against Frame 1)
+Pallet 	PAL TILT3	  Position: -734.0	-1919.1	 Angle2.7	 Lift 195.0	 TiltX -14.4	TiltY-14.1
+Centerrable 	CENT4	  Position: -1207.0	-1511.0	 Angle89.2	 Lift 1176.0	 TiltX -21.3 TiltY-1.8</pre>
 </div>
 </div>
 
                     </article>
                 </div>
                 <div id="site-toc-holder">
-                    <aside id="site-toc">
- <h3>Contents</h3>
- <ul>
-  <li level="1">
-   <a href="#_zero_points_of_components">Zero points of components</a>
-  </li>
-  <li level="1">
-   <a href="#_old_coordinate_systems">Old coordinate systems</a>
-  </li>
- </ul>
-</aside>
-
+                    <aside id="site-toc"></aside>
                 </div>
             </div>
             <nav class="pagination">
- <span class="prev"><a href="index.html">Basics</a></span>
- <span class="next"><a href="fanuccoords.html">Robot Coordinates</a></span>
+ <span class="prev"><a href="index.html">Frames</a></span>
+ <span class="next"><a href="frame_racell.html">UF RA FlexCell</a></span>
 </nav>
 
         </div>
