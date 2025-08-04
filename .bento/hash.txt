@@ -1,7 +1,7 @@
 Version=56
 LANGUAGE=EN
 Folders=26
-Pages=123
+Pages=122
 UIXlate=False, DebugUIXlate=False, Language=EN
 
 contents.txt • 251026.031058
@@ -120,7 +120,7 @@ CellConfig\DEV_Components\Dispenser.adoc • Change dispenser geometry
 CellConfig\DEV_Components\gripper.adoc • Tweak a gripper CAD geometry
 CellConfig\DEV_Components\Index.adoc • Flux: Tweeak Components
 CellConfig\DEV_Components\pinch.adoc • Adjust Pinch gripper offset
-CellConfig\Grippertool\contents.txt • 254213.074227
+CellConfig\Grippertool\contents.txt • 251704.111712
 CellConfig\Grippertool\cups.adoc • Trumpf standard vacuum cups
 CellConfig\Grippertool\GripperDesign.adoc • Gripper design
 CellConfig\Grippertool\Gripperimport.adoc • Gripper import
